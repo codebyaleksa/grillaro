@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grillaro - Ukus koji pamtiš</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="scrollToTopBtn" title="Na vrh">&#8679;</button>
+  
+
+  <header class="hero">
+    <nav class="nav container">
+      <div class="logo">Grillaro</div>
+      <ul class="nav-links">
+        <li><a href="#meni">Meni</a></li>
+        <li><a href="#o-nama">O nama</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="hero-overlay"></div>
+  
+    <div class="hero-content container">
+      <h1>Grillaro</h1>
+      <p>Ukus koji pamtiš, roštilj koji osvaja.</p>
+      <a href="#meni" class="btn btn-primary">Pogledaj meni</a>
+    </div>
+  </header>
+
+  <section id="meni" class="meni container fade-in">
+    <h2>Meni</h2>
+    <div class="meni-grid">
+
+      <!-- Svaki proizvod -->
+      <article class="jelo">
+        <img src="img/mala.png" alt="Velika pljeskavica" />
+        <h3>Velika pljeskavica</h3>
+        <p>250g za istinske ljubitelje mesa.</p>
+        <span class="cena">350 RSD</span> 
+        <button class="btn btn-secondary" onclick="dodajUKorpu('Velika pljeskavica', 350)">Dodaj</button>
+      </article>
+
+      <!-- Sledeći proizvodi -->
+      <article class="jelo">
+        <img src="img/vesalica-removebg-preview.png" alt="Bela vešalica" />
+        <h3>Bela vešalica</h3>
+        <p>180g svinjski specijalitet sa roštilja.</p>
+        <span class="cena">350 RSD</span> 
+        <button class="btn btn-secondary" onclick="dodajUKorpu('Bela vešalica', 350)">Dodaj</button>
+      </article>
+
+      <article class="jelo">
+        <img src="img/pomfrit.png" alt="Pomfrit" />
+        <h3>Pomfrit</h3>
+        <p>200g hrskavi krompirići.</p>
+        <span class="cena">250 RSD</span> 
+        <button class="btn btn-secondary" onclick="dodajUKorpu('Pomfrit', 250)">Dodaj</button>
+      </article>
+
+      <article class="jelo">
+        <img src="img/lepiiiiiil-removebg-preview.png" alt="Lepinja" />
+        <h3>Lepinja</h3>
+        <p>Sveže pečena lepinja uz svaki obrok.</p>
+        <span class="cena">40 RSD</span>  
+        <button class="btn btn-secondary" onclick="dodajUKorpu('Lepinja', 40)">Dodaj</button>
+      </article>
+
+      <!-- Pice -->
+    <article class="jelo">
+      <img class="fanta"     src="img/fanta.png" alt="Fanta 0.5" />
+      <h3>Fanta 0.5</h3>
+      <p>Osvježavajuće gazirano piće.</p>
+      <span class="cena">100 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Fanta 0.5', 100)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/sprite.png" alt="Sprite 0.5" />
+      <h3>Sprite 0.5</h3>
+      <p>Osvježenje uz svaki zalogaj.</p>
+      <span class="cena">100 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Sprite 0.5', 100)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/biterlemon.png" alt="Bitter Lemon 0.5" />
+      <h3>Bitter Lemon 0.5</h3>
+      <p>Gorkasti limun osveženje.</p>
+      <span class="cena">100 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Bitter Lemon 0.5', 100)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/rosa-removebg-preview.png" alt="Voda 0.5" />
+      <h3>Voda 0.5</h3>
+      <p>Prirodna osvežavajuća voda.</p>
+      <span class="cena">100 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Voda 0.5', 100)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/cocacola.png" alt="Coca Cola 0.5" />
+      <h3>Coca Cola 0.5</h3>
+      <p>Klasik među gaziranim pićima.</p>
+      <span class="cena">100 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Coca Cola 0.5', 100)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/ultrabez.png" alt="Ultra Energy 0.3" />
+      <h3>Ultra Energy 0.3</h3>
+      <p>Energetsko piće za dodatnu snagu.</p>
+      <span class="cena">120 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Ultra Energy 0.3', 120)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/nextbezjoj.png" alt="Next Joy 0.5" />
+      <h3>Next Joy 0.5</h3>
+      <p>Voćni napitak sa osveženjem.</p>
+      <span class="cena">90 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Next Joy 0.5', 90)">Dodaj</button>
+    </article>
+
+    <article class="jelo">
+      <img src="img/nextlimun.png" alt="Next limunada 0.5" />
+      <h3>Next limunada 0.5</h3>
+      <p>Blaga i osvežavajuća limunada.</p>
+      <span class="cena">100 RSD</span>
+      <button class="btn btn-secondary" onclick="dodajUKorpu('Next limunada 0.5', 100)">Dodaj</button>
+    </article>
+
+    </div>
+  </section>
+
+  <section id="o-nama" class="o-nama container fade-in">
+    <h2>O nama</h2>
+    <p>Grillaro je mesto gde se susreću tradicija i savremeni ukusi. Naš roštilj pravi se sa pažnjom i ljubavlju, za prave sladokusce.</p>
+  </section>
+
+  <section id="kontakt" class="kontakt container fade-in">
+    <h2>Kontakt</h2>
+    <form>
+      <label for="ime">Ime i prezime</label>
+      <input type="text" id="ime" name="ime" placeholder="Vaše ime" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="vaš.email@example.com" required />
+
+      <label for="poruka">Poruka</label>
+      <textarea id="poruka" name="poruka" placeholder="Vaša poruka" required></textarea>
+
+      <button type="submit" class="btn btn-primary">Pošalji</button>
+    </form>
+  </section>
+<div id="cartSidebar" class="cart-sidebar">
+  <button id="closeCartBtn" class="close-cart">&times;</button>
+  <h2>Korpa</h2>
+  <ul id="cartItems">
+    <!-- Proizvodi -->
+  </ul>
+  <p id="ukupnaCena">Ukupno: 0 RSD</p>
+
+  <!-- Forma za unos podataka direktno u korpi -->
+  <h3>Popunite podatke za narudžbinu</h3>
+  <form id="kontaktForma">
+     <label for="imePrezime">Ime i prezime</label>
+  <input type="text" id="imePrezime" name="imePrezime" placeholder="Ime i prezime" required />
+
+  <label for="telefon">Broj telefona</label>
+  <input type="tel" id="telefon" name="telefon" placeholder="Broj telefona" required />
+
+  <label for="datum">Datum preuzimanja</label>
+  <input type="date" id="datum" name="datum" required />
+
+  <label for="vreme">Vreme preuzimanja</label>
+  <input type="time" id="vreme" name="vreme" required />
+
+    <label for="adresa">Adresa (opciono)</label>
+    <input type="text" id="adresa" name="adresa" placeholder="Adresa za preuzimanje" />
+
+    <button type="submit" id="ddd" class="posalji">Pošalji narudžbinu</button>
+  </form>
+</div>
+
+
+
+<button id="idiUKorpu" onclick="scrollToCart()"><img src="img/cart.svg" alt="cart"></button>
+
+
+  <footer class="footer">
+    <p>© 2025 Grillaro. Sva prava zadržana.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

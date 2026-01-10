@@ -1,0 +1,555 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #1e1e1e;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 70px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #d62828;
+  margin-left: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1e1e1e;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  margin-right: 20px;
+}
+
+.nav-links a:hover {
+  color: #d62828;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+  background-color: #d62828;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #a62222;
+}
+
+.btn-secondary {
+  background-color: #f77f00;
+  color: white;
+  margin-top: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #cc6b00;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* MENI */
+.meni {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.meni h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #d62828;
+}
+
+.meni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.jelo {
+  background: #fff5f3;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jelo:hover {
+  box-shadow: 0 12px 30px rgba(214, 40, 40, 0.5);
+  transform: translateY(-15px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jelo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  height: 350px;
+  transition: transform 0.4s ease;
+}
+
+.jelo:hover img {
+  transform: scale(1.05);
+}
+
+.jelo h3 {
+  color: #d62828;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.jelo p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cena {
+  font-weight: 700;
+  color: #1e1e1e;
+  font-size: 1.1rem;
+}
+
+.jelo .btn-secondary {
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 25px;
+}
+
+.jelo .btn-secondary:hover {
+  background-color: #cc6b00;
+  box-shadow: 0 4px 12px rgba(204,107,0,0.5);
+}
+
+/* O NAMA */
+.o-nama {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.o-nama h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #d62828;
+}
+
+.o-nama p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* KONTAKT */
+.kontakt {
+  padding: 60px 0;
+  background: #f9f9f9;
+}
+
+.kontakt h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #d62828;
+  text-align: center;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+/* FOOTER */
+.footer {
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+/* Fade-in efekat */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll-to-top dugme */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 100px;
+  display: none;
+  background-color: #d62828;
+  color: white;
+  border: none;
+  padding: 17px 22px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(214,40,40,0.6);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #a62222;
+}
+
+/* Dugme za korpu */
+#idiUKorpu {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#idiUKorpu img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+
+/* Bočna korpa (sidebar) */
+#cartSidebar {
+  position: fixed;
+  top: 0;
+  right: -400px; /* sakrivena po default-u */
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+  z-index: 1001;
+  padding: 20px;
+}
+
+/* Kada je otvorena */
+#cartSidebar.open {
+  right: 0;
+}
+
+/* Naslov korpe */
+#cartSidebar h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  color: #ff5722;
+}
+
+/* Lista proizvoda u korpi */
+#cartItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#cartItems li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+}
+
+#cartItems .naziv {
+  font-weight: bold;
+  flex: 1 0 100%;
+}
+
+#cartItems .cena {
+  color: #333;
+}
+
+#cartItems .kolicina {
+  margin: 0 5px;
+}
+
+/* Dugme za smanjenje količine */
+#cartItems button.smanji {
+  background: #ff4444;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+#cartItems button.smanji:hover {
+  background: #cc0000;
+}
+
+/* Ukupna cena */
+#ukupnaCena {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+}
+
+/* Overlay za zatvaranje korpe */
+#cartOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 999;
+}
+
+/* Kada je overlay aktivan */
+#cartSidebar.open + #cartOverlay {
+  display: block;
+}
+
+/* Scroll bar za korpu */
+#cartSidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+#cartSidebar::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* Checkout dugme */
+.checkout {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.checkout:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+  .nav-links {
+    gap: 15px;
+    font-size: 10.7px;
+  }
+}
+
+@media (max-width: 600px) {
+  .jelo img {
+    height: 140px;
+  }
+}
+
+/* HERO dodatni stilovi */
+.hero {
+  position: relative; /* Obavezno da overlay radi */
+  height: 80vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: url('img/intro.jpg') no-repeat center center/cover;
+  opacity: 1; /* Možeš menjati providnost */
+  z-index: 1;
+  pointer-events: none; /* Da overlay ne blokira klikove */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 150px;
+}
+
+/* Ostali hero stilovi */
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+}
+
+/* Dugme idi u korpu */
+#idiUKorpu {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1001;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#idiUKorpu img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+}
+
+/* Dugme za zatvaranje korpe */
+.close-cart {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+
+.posalji {
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  background-color: green;
+  
+}
+
+#ddd {
+  color: rgb(255, 255, 255);
+}
+
+/* Promeni boju pozadine dugmeta kada se pređe mišem preko njega */
+.posalji:hover {
+  background-color: #25c117;
+  color: white;
+  cursor: pointer; /* pokazivač ruke */
+}
+
