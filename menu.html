@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MENI</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <div class="logo">GRILLARO</div>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
+    <button id="theme-toggle" class="theme-btn">🌙</button>
+  </div>
+</nav>
+
+
+<!-- ===== MENU Sekcija sa kategorijama i filterima ===== -->
+<section id="menu" class="menu">
+  <h2>🔥 Naš Meni</h2>
+
+  <!-- TAB SEKCIJE -->
+  <div class="tabs">
+    <button class="tab-btn active" data-category="all">SVE</button>
+    <button class="tab-btn" data-category="burgers">Burgers</button>
+    <button class="tab-btn" data-category="salads">Salads</button>
+    <button class="tab-btn" data-category="drinks">Drinks</button>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filters">
+    <label>Sortiraj po: 
+      <select id="sortSelect">
+        <option value="default">Po redosledu</option>
+        <option value="price-asc">Cena: od najniže</option>
+        <option value="price-desc">Cena: od najviše</option>
+        <option value="name-asc">A-Z</option>
+        <option value="name-desc">Z-A</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- Grid menija -->
+  <div class="menu-grid" id="menu-grid">
+
+    <!-- BURGERS -->
+    <div class="card" data-category="burgers" data-price="650">
+      <img src="slike/cevapi.jpg" alt="Ćevapi Deluxe">
+      <h3>Ćevapi Deluxe</h3>
+      <p class="ingredients">Juneći ćevapi, domaća lepinja, luk</p>
+      <div class="price-row"><span>650 RSD</span><button onclick="addToCart('Ćevapi Deluxe',650,'slike/cevapi.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="burgers" data-price="650">
+      <img src="slike/burger.jpg" alt="Burger Classic">
+      <h3>Burger Classic</h3>
+      <p class="ingredients">Juneći ćevapi, domaća lepinja, luk</p>
+      <div class="price-row"><span>650 RSD</span><button onclick="addToCart('Burger Classic',650, 'slike/burger.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="burgers" data-price="520">
+      <img src="slike/ciken.jpg" alt="Chicken Burger">
+      <h3>Chicken Burger</h3>
+      <p class="ingredients">Hrskava piletina, sveže povrće</p>
+      <div class="price-row"><span>520 RSD</span><button onclick="addToCart('Chicken Burger',520, 'slike/ciken.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="burgers" data-price="480">
+      <img src="slike/veggie.jpg" alt="Veggie Burger">
+      <h3>Veggie Burger</h3>
+      <p class="ingredients">Biljni burger sa salatom i avokadom</p>
+      <div class="price-row"><span>480 RSD</span><button onclick="addToCart('Veggie Burger',480, 'slike/veggie.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="burgers" data-price="760">
+      <img src="slike/steak.jpg" alt="Steak Burger">
+      <h3>Steak Burger</h3>
+      <p class="ingredients">Biftek, sir, karamelizovani luk</p>
+      <div class="price-row"><span>760 RSD</span><button onclick="addToCart('Steak Burger',760, 'slike/steak.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="burgers" data-price="540">
+      <img src="slike/slanina.jpg" alt="Bacon Burger">
+      <h3>Bacon Burger</h3>
+      <p class="ingredients">Slanina, sir, meso</p>
+      <div class="price-row"><span>540 RSD</span><button onclick="addToCart('Bacon Burger',540, 'slike/slanina.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="burgers" data-price="490">
+      <img src="slike/spicy.jpg" alt="Spicy Burger">
+      <h3>Spicy Burger</h3>
+      <p class="ingredients">Ljuta paprika, sir</p>
+      <div class="price-row"><span>490 RSD</span><button onclick="addToCart('Spicy Burger',490, 'slike/spicy.jpg')">+</button></div>
+    </div>
+
+    <!-- SALADS -->
+    <div class="card" data-category="salads" data-price="480">
+      <img src="slike/istockphoto-2185226279-612x612.jpg" alt="Caesar Salata">
+      <h3>Caesar Salata</h3>
+      <p class="ingredients">Rimska salata, parmezan, preliv</p>
+      <div class="price-row"><span>480 RSD</span><button onclick="addToCart('Caesar Salata',480, 'slike/istockphoto-2185226279-612x612.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="salads" data-price="420">
+      <img src="slike/grcka.jpg" alt="Grčka Salata">
+      <h3>Grčka Salata</h3>
+      <p class="ingredients">Feta, masline, krastavac, paradajz</p>
+      <div class="price-row"><span>420 RSD</span><button onclick="addToCart('Grčka Salata',420, 'slike/grcka.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="salads" data-price="510">
+      <img src="slike/kale.jpg" alt="Kale Salad">
+      <h3>Kale Salad</h3>
+      <p class="ingredients">Kejl, bademi, vinaigrette</p>
+      <div class="price-row"><span>510 RSD</span><button onclick="addToCart('Kale Salad',510, 'slike/kale.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="salads" data-price="440">
+      <img src="slike/medit.jpg" alt="Mediterranean Salad">
+      <h3>Mediterranean Salad</h3>
+      <p class="ingredients">Tunjevina, paprika, masline</p>
+      <div class="price-row"><span>440 RSD</span><button onclick="addToCart('Mediterranean Salad',440, 'slike/medit.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="salads" data-price="470">
+      <img src="slike/greek.jpg" alt="Greek Yogurt Bowl">
+      <h3>Greek Yogurt Bowl</h3>
+      <p class="ingredients">Jogurt, med, orasi</p>
+      <div class="price-row"><span>470 RSD</span><button onclick="addToCart('Greek Yogurt Bowl',470, 'slike/greek.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="salads" data-price="510">
+      <img src="slike/tabb.jpg" alt="Tabbouleh">
+      <h3>Tabbouleh</h3>
+      <p class="ingredients">Peršun, paradajz, kuskus</p>
+      <div class="price-row"><span>510 RSD</span><button onclick="addToCart('Tabbouleh',510, 'slike/tabb.jpg')">+</button></div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="card" data-category="drinks" data-price="150">
+      <img src="slike/coca.jpg" alt="Coca Cola">
+      <h3>Coca Cola</h3>
+      <p class="ingredients">Osvežavajuće gazirano</p>
+      <div class="price-row"><span>150 RSD</span><button onclick="addToCart('Coca Cola',150, 'slike/coca.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="drinks" data-price="150">
+      <img src="slike/fanta.jpg" alt="Fanta">
+      <h3>Fanta</h3>
+      <p class="ingredients">Narandžasti osvežavajući napitak</p>
+      <div class="price-row"><span>150 RSD</span><button onclick="addToCart('Fanta',150, 'slike/fanta.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="drinks" data-price="150">
+      <img src="slike/sprite.jpg" alt="Sprite">
+      <h3>Sprite</h3>
+      <p class="ingredients">Limunasto i sveže</p>
+      <div class="price-row"><span>150 RSD</span><button onclick="addToCart('Sprite',150, 'slike/sprite.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="drinks" data-price="100">
+      <img src="slike/miner.jpg" alt="Mineralna Voda">
+      <h3>Mineralna Voda</h3>
+      <p class="ingredients">Gazirana ili negazirana</p>
+      <div class="price-row"><span>100 RSD</span><button onclick="addToCart('Mineralna Voda',100, 'slike/miner.jpg')">+</button></div>
+    </div>
+
+    <div class="card" data-category="drinks" data-price="220">
+      <img src="slike/ice.jpg" alt="Iced Tea">
+      <h3>Iced Tea</h3>
+      <p class="ingredients">Ledeni čaj sa limunom</p>
+      <div class="price-row"><span>220 RSD</span><button onclick="addToCart('Iced Tea',220, 'slike/ice.jpg')">+</button></div>
+    </div>
+
+  </div>
+</section>
+<div class="cart-overlay" id="cart">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h2>🛒 Tvoja Korpa</h2>
+      <button class="close-cart" onclick="toggleCart()"><span></span><span></span></button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <div class="empty-cart">🛒 Korpa je prazna</div>
+    </div>
+
+ <div class="delivery-section">
+  <h3>Podaci za preuzimanje</h3>
+  <input type="text" placeholder="Ime" id="firstName">
+  <input type="text" placeholder="Prezime" id="lastName">
+  <input type="tel" placeholder="Broj telefona" id="phone">
+  <input type="date" id="pickupDate">
+  <input type="time" id="pickupTime">
+</div>
+
+    <div class="cart-footer">
+      <div class="summary">
+        <div><span>Artikli</span><span id="items-total">0 RSD</span></div>
+        <div><span>Dostava</span><span id="delivery-price">0 RSD</span></div>
+        <div class="grand"><span>Ukupno</span><span id="total">0 RSD</span></div>
+      </div>
+      <button class="checkout-btn">Poruči odmah</button>
+    </div>
+  </div>
+</div>
+<!-- Toast notifikacija -->
+<div id="toast" class="toast"></div>
+
+<a href="index.html" class="cta">VRNI SE BUDALO</a>
+
+<footer>
+  <div class="footer-top">
+    <p>310 East 23rd Street, Suite 8F • New York City • 10010</p>
+    <p>212.989.9153 • <a href="mailto:info@grillaro.com">info@grillaro.com</a></p>
+  </div>
+
+  <div class="footer-middle">
+    <nav class="footer-menu">
+      <a href="menu.html">Burgers</a>
+      <a href="menu.html#salads">Salads</a>
+      <a href="menu.html#drinks">Drinks</a>
+      <a href="#">Kontakt</a>
+    </nav>
+
+    <div class="footer-logo">
+      <span>GR</span>
+      <span>IL</span>
+      <span>LA</span>
+      <span>RO</span>
+    </div>
+
+<div class="footer-social">
+  <!-- Instagram -->
+  <a href="#" aria-label="Instagram">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.403a4.92 4.92 0 011.756 1.022 4.92 4.92 0 011.022 1.756c.163.46.347 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.403 2.43a4.92 4.92 0 01-1.022 1.756 4.92 4.92 0 01-1.756 1.022c-.46.163-1.26.347-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.403a4.92 4.92 0 01-1.756-1.022 4.92 4.92 0 01-1.022-1.756c-.163-.46-.347-1.26-.403-2.43C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.403-2.43a4.92 4.92 0 011.022-1.756 4.92 4.92 0 011.756-1.022c.46-.163 1.26-.347 2.43-.403C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.13 4.712.307 3.842.64 2.912 1 2.1 1.506 1.392 2.214.684 2.921.178 3.734-.182 4.664c-.333.87-.51 1.933-.568 3.21C-.014 8.332 0 8.741 0 12s.014 3.668.072 4.948c.058 1.277.235 2.34.568 3.21.36.93.866 1.743 1.574 2.451.707.708 1.52 1.214 2.451 1.574.87.333 1.933.51 3.21.568C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.34-.235 3.21-.568.93-.36 1.743-.866 2.451-1.574.708-.707 1.214-1.52 1.574-2.451.333-.87.51-1.933.568-3.21C23.986 15.668 24 15.259 24 12s-.014-3.668-.072-4.948c-.058-1.277-.235-2.34-.568-3.21-.36-.93-.866-1.743-1.574-2.451C20.36 1.506 19.547 1 18.616.64c-.87-.333-1.933-.51-3.21-.568C15.668.014 15.259 0 12 0z"/>
+      <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z"/>
+      <circle cx="18.406" cy="5.594" r="1.44"/>
+    </svg>
+  </a>
+
+  <!-- Facebook -->
+  <a href="#" aria-label="Facebook">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V11.01h3.128V8.414c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.462.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.407 0 22.675 0z"/>
+    </svg>
+  </a>
+
+  <!-- Twitter -->
+  <a href="#" aria-label="Twitter">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.719 0-4.924 2.206-4.924 4.924 0 .39.045.765.127 1.124-4.09-.205-7.719-2.165-10.148-5.144-.424.729-.666 1.577-.666 2.476 0 1.708.869 3.215 2.188 4.099-.807-.026-1.566-.247-2.229-.616v.062c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.317 0-.626-.03-.927-.086.627 1.956 2.444 3.377 4.6 3.416-1.68 1.316-3.808 2.101-6.115 2.101-.397 0-.788-.023-1.175-.068 2.179 1.396 4.768 2.211 7.557 2.211 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.634.961-.695 1.8-1.562 2.46-2.549l-.047-.02z"/>
+    </svg>
+  </a>
+</div>
+
+
+  <div class="footer-bottom">
+    <p>Prijavite se za naš newsletter</p>
+    <form class="footer-newsletter">
+      <input type="email" placeholder="Email adresa">
+      <button type="submit">PRIJAVI SE</button>
+    </form>
+    <p>© 2026 GRILLARO. Sva prava zadržana.</p>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
