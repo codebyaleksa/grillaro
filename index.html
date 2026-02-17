@@ -1,199 +1,91 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Grillaro - Ukus koji pamtiš</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grillaro | Premium Street Food</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <button id="scrollToTopBtn" title="Na vrh">&#8679;</button>
-  
 
-  <header class="hero">
-    <nav class="nav container">
-      <div class="logo">Grillaro</div>
-      <ul class="nav-links">
-        <li><a href="#meni">Meni</a></li>
-        <li><a href="#o-nama">O nama</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
+<nav>
+    <div class="logo">GRILLARO</div>
+    <div class="nav-right">
+        <button class="cart-btn" onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
+        <button id="theme-toggle" class="theme-btn">🌙</button>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Premium <span>Street Food</span></h1>
+        <p>Brza hrana. Vrhunski ukus. Bez kompromisa.</p>
+        <a href="menu.html" class="cta">Pogledaj Meni</a>
+    </div>
+</section>
+
+
+
+<footer>
+  <div class="footer-top">
+    <p>310 East 23rd Street, Suite 8F • New York City • 10010</p>
+    <p>212.989.9153 • <a href="mailto:info@grillaro.com">info@grillaro.com</a></p>
+  </div>
+
+  <div class="footer-middle">
+    <nav class="footer-menu">
+      <a href="menu.html">Burgers</a>
+      <a href="menu.html#salads">Salads</a>
+      <a href="menu.html#drinks">Drinks</a>
+      <a href="#">Kontakt</a>
     </nav>
-    <div class="hero-overlay"></div>
-  
-    <div class="hero-content container">
-      <h1>Grillaro</h1>
-      <p>Ukus koji pamtiš, roštilj koji osvaja.</p>
-      <a href="#meni" class="btn btn-primary">Pogledaj meni</a>
+
+    <div class="footer-logo">
+      <span>GR</span>
+      <span>IL</span>
+      <span>LA</span>
+      <span>RO</span>
     </div>
-  </header>
 
-  <section id="meni" class="meni container fade-in">
-    <h2>Meni</h2>
-    <div class="meni-grid">
+<div class="footer-social">
+  <!-- Instagram -->
+  <a href="#" aria-label="Instagram">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.403a4.92 4.92 0 011.756 1.022 4.92 4.92 0 011.022 1.756c.163.46.347 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.403 2.43a4.92 4.92 0 01-1.022 1.756 4.92 4.92 0 01-1.756 1.022c-.46.163-1.26.347-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.403a4.92 4.92 0 01-1.756-1.022 4.92 4.92 0 01-1.022-1.756c-.163-.46-.347-1.26-.403-2.43C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.403-2.43a4.92 4.92 0 011.022-1.756 4.92 4.92 0 011.756-1.022c.46-.163 1.26-.347 2.43-.403C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.13 4.712.307 3.842.64 2.912 1 2.1 1.506 1.392 2.214.684 2.921.178 3.734-.182 4.664c-.333.87-.51 1.933-.568 3.21C-.014 8.332 0 8.741 0 12s.014 3.668.072 4.948c.058 1.277.235 2.34.568 3.21.36.93.866 1.743 1.574 2.451.707.708 1.52 1.214 2.451 1.574.87.333 1.933.51 3.21.568C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.058 2.34-.235 3.21-.568.93-.36 1.743-.866 2.451-1.574.708-.707 1.214-1.52 1.574-2.451.333-.87.51-1.933.568-3.21C23.986 15.668 24 15.259 24 12s-.014-3.668-.072-4.948c-.058-1.277-.235-2.34-.568-3.21-.36-.93-.866-1.743-1.574-2.451C20.36 1.506 19.547 1 18.616.64c-.87-.333-1.933-.51-3.21-.568C15.668.014 15.259 0 12 0z"/>
+      <path d="M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998z"/>
+      <circle cx="18.406" cy="5.594" r="1.44"/>
+    </svg>
+  </a>
 
-      <!-- Svaki proizvod -->
-      <article class="jelo">
-        <img src="img/mala.png" alt="Velika pljeskavica" />
-        <h3>Velika pljeskavica</h3>
-        <p>250g za istinske ljubitelje mesa.</p>
-        <span class="cena">350 RSD</span> 
-        <button class="btn btn-secondary" onclick="dodajUKorpu('Velika pljeskavica', 350)">Dodaj</button>
-      </article>
+  <!-- Facebook -->
+  <a href="#" aria-label="Facebook">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V11.01h3.128V8.414c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.462.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.696h-3.12V24h6.116c.73 0 1.324-.593 1.324-1.324V1.325C24 .593 23.407 0 22.675 0z"/>
+    </svg>
+  </a>
 
-      <!-- Sledeći proizvodi -->
-      <article class="jelo">
-        <img src="img/vesalica-removebg-preview.png" alt="Bela vešalica" />
-        <h3>Bela vešalica</h3>
-        <p>180g svinjski specijalitet sa roštilja.</p>
-        <span class="cena">350 RSD</span> 
-        <button class="btn btn-secondary" onclick="dodajUKorpu('Bela vešalica', 350)">Dodaj</button>
-      </article>
-
-      <article class="jelo">
-        <img src="img/pomfrit.png" alt="Pomfrit" />
-        <h3>Pomfrit</h3>
-        <p>200g hrskavi krompirići.</p>
-        <span class="cena">250 RSD</span> 
-        <button class="btn btn-secondary" onclick="dodajUKorpu('Pomfrit', 250)">Dodaj</button>
-      </article>
-
-      <article class="jelo">
-        <img src="img/lepiiiiiil-removebg-preview.png" alt="Lepinja" />
-        <h3>Lepinja</h3>
-        <p>Sveže pečena lepinja uz svaki obrok.</p>
-        <span class="cena">40 RSD</span>  
-        <button class="btn btn-secondary" onclick="dodajUKorpu('Lepinja', 40)">Dodaj</button>
-      </article>
-
-      <!-- Pice -->
-    <article class="jelo">
-      <img class="fanta"     src="img/fanta.png" alt="Fanta 0.5" />
-      <h3>Fanta 0.5</h3>
-      <p>Osvježavajuće gazirano piće.</p>
-      <span class="cena">100 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Fanta 0.5', 100)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/sprite.png" alt="Sprite 0.5" />
-      <h3>Sprite 0.5</h3>
-      <p>Osvježenje uz svaki zalogaj.</p>
-      <span class="cena">100 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Sprite 0.5', 100)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/biterlemon.png" alt="Bitter Lemon 0.5" />
-      <h3>Bitter Lemon 0.5</h3>
-      <p>Gorkasti limun osveženje.</p>
-      <span class="cena">100 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Bitter Lemon 0.5', 100)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/rosa-removebg-preview.png" alt="Voda 0.5" />
-      <h3>Voda 0.5</h3>
-      <p>Prirodna osvežavajuća voda.</p>
-      <span class="cena">100 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Voda 0.5', 100)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/cocacola.png" alt="Coca Cola 0.5" />
-      <h3>Coca Cola 0.5</h3>
-      <p>Klasik među gaziranim pićima.</p>
-      <span class="cena">100 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Coca Cola 0.5', 100)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/ultrabez.png" alt="Ultra Energy 0.3" />
-      <h3>Ultra Energy 0.3</h3>
-      <p>Energetsko piće za dodatnu snagu.</p>
-      <span class="cena">120 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Ultra Energy 0.3', 120)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/nextbezjoj.png" alt="Next Joy 0.5" />
-      <h3>Next Joy 0.5</h3>
-      <p>Voćni napitak sa osveženjem.</p>
-      <span class="cena">90 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Next Joy 0.5', 90)">Dodaj</button>
-    </article>
-
-    <article class="jelo">
-      <img src="img/nextlimun.png" alt="Next limunada 0.5" />
-      <h3>Next limunada 0.5</h3>
-      <p>Blaga i osvežavajuća limunada.</p>
-      <span class="cena">100 RSD</span>
-      <button class="btn btn-secondary" onclick="dodajUKorpu('Next limunada 0.5', 100)">Dodaj</button>
-    </article>
-
-    </div>
-  </section>
-
-  <section id="o-nama" class="o-nama container fade-in">
-    <h2>O nama</h2>
-    <p>Grillaro je mesto gde se susreću tradicija i savremeni ukusi. Naš roštilj pravi se sa pažnjom i ljubavlju, za prave sladokusce.</p>
-  </section>
-
-  <section id="kontakt" class="kontakt container fade-in">
-    <h2>Kontakt</h2>
-    <form>
-      <label for="ime">Ime i prezime</label>
-      <input type="text" id="ime" name="ime" placeholder="Vaše ime" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="vaš.email@example.com" required />
-
-      <label for="poruka">Poruka</label>
-      <textarea id="poruka" name="poruka" placeholder="Vaša poruka" required></textarea>
-
-      <button type="submit" class="btn btn-primary">Pošalji</button>
-    </form>
-  </section>
-<div id="cartSidebar" class="cart-sidebar">
-  <button id="closeCartBtn" class="close-cart">&times;</button>
-  <h2>Korpa</h2>
-  <ul id="cartItems">
-    <!-- Proizvodi -->
-  </ul>
-  <p id="ukupnaCena">Ukupno: 0 RSD</p>
-
-  <!-- Forma za unos podataka direktno u korpi -->
-  <h3>Popunite podatke za narudžbinu</h3>
-  <form id="kontaktForma">
-     <label for="imePrezime">Ime i prezime</label>
-  <input type="text" id="imePrezime" name="imePrezime" placeholder="Ime i prezime" required />
-
-  <label for="telefon">Broj telefona</label>
-  <input type="tel" id="telefon" name="telefon" placeholder="Broj telefona" required />
-
-  <label for="datum">Datum preuzimanja</label>
-  <input type="date" id="datum" name="datum" required />
-
-  <label for="vreme">Vreme preuzimanja</label>
-  <input type="time" id="vreme" name="vreme" required />
-
-    <label for="adresa">Adresa (opciono)</label>
-    <input type="text" id="adresa" name="adresa" placeholder="Adresa za preuzimanje" />
-
-    <button type="submit" id="ddd" class="posalji">Pošalji narudžbinu</button>
-  </form>
+  <!-- Twitter -->
+  <a href="#" aria-label="Twitter">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.719 0-4.924 2.206-4.924 4.924 0 .39.045.765.127 1.124-4.09-.205-7.719-2.165-10.148-5.144-.424.729-.666 1.577-.666 2.476 0 1.708.869 3.215 2.188 4.099-.807-.026-1.566-.247-2.229-.616v.062c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.317 0-.626-.03-.927-.086.627 1.956 2.444 3.377 4.6 3.416-1.68 1.316-3.808 2.101-6.115 2.101-.397 0-.788-.023-1.175-.068 2.179 1.396 4.768 2.211 7.557 2.211 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.634.961-.695 1.8-1.562 2.46-2.549l-.047-.02z"/>
+    </svg>
+  </a>
 </div>
 
 
+  <div class="footer-bottom">
+    <p>Prijavite se za naš newsletter</p>
+    <form class="footer-newsletter">
+      <input type="email" placeholder="Email adresa">
+      <button type="submit">PRIJAVI SE</button>
+    </form>
+    <p>© 2026 GRILLARO. Sva prava zadržana.</p>
+  </div>
+</footer>
 
-<button id="idiUKorpu" onclick="scrollToCart()"><img src="img/cart.svg" alt="cart"></button>
 
-
-  <footer class="footer">
-    <p>© 2025 Grillaro. Sva prava zadržana.</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+
