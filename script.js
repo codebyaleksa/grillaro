@@ -1,157 +1,121 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll za anchor linkove
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+let cart = [];
+
+// Elementi
+const cartOverlay = document.getElementById("cart");
+const cartItems = document.getElementById("cart-items");
+const itemsTotalText = document.getElementById("items-total");
+const deliveryText = document.getElementById("delivery-price");
+const totalText = document.getElementById("total");
+const cartCount = document.getElementById("cart-count");
+const themeBtns = document.querySelectorAll("#theme-toggle");
+const menuGrid = document.getElementById("menu-grid");
+
+function toggleCart() { cartOverlay.classList.toggle("active"); }
+
+// FUNKCIJA ZA DODAVANJE SA SLIKOM
+function addToCart(name, price, img) {
+    const item = cart.find(p => p.name === name);
+    if (item) item.qty++;
+    else cart.push({ name, price, img, qty: 1 });
+    renderCart();
+}
+
+function changeQty(index, amount) {
+    cart[index].qty += amount;
+    if (cart[index].qty <= 0) cart.splice(index, 1);
+    renderCart();
+}
+
+function renderCart() {
+    if (!cartItems) return;
+    cartItems.innerHTML = "";
+    if (cart.length === 0) {
+        cartItems.innerHTML = `<div style="text-align:center; opacity:.5; margin-top:40px">🛒 Korpa je prazna</div>`;
+        itemsTotalText.textContent = "0 RSD";
+        deliveryText.textContent = "0 RSD";
+        totalText.textContent = "0 RSD";
+        cartCount.textContent = "0";
+        return;
+    }
+
+    let itemsTotal = 0, count = 0;
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        itemsTotal += itemTotal;
+        count += item.qty;
+        cartItems.innerHTML += `
+        <div class="cart-item">
+            <img src="${item.img}" class="cart-img">
+            <div style="flex:1">
+                <strong>${item.name}</strong><br>
+                <small>${item.price} RSD</small>
+                <div class="cart-controls">
+                    <button onclick="changeQty(${index}, -1)">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${index}, 1)">+</button>
+                    <strong style="margin-left:auto">${itemTotal} RSD</strong>
+                </div>
+            </div>
+        </div>`;
     });
-  });
 
-  // Fade-in efekat na skrol
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+    itemsTotalText.textContent = `${itemsTotal} RSD`;
+    const delivery = itemsTotal >= 2000 ? 0 : 200;
+    deliveryText.textContent = delivery === 0 ? "Besplatna" : `${delivery} RSD`;
+    totalText.textContent = `${itemsTotal + delivery} RSD`;
+    cartCount.textContent = count;
+}
+
+// FILTERI
+if (menuGrid) {
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            const category = btn.dataset.category;
+            menuGrid.querySelectorAll(".card").forEach(card => {
+                if (category === "all" || card.dataset.category === category) {
+                    card.classList.remove("hidden");
+                } else {
+                    card.classList.add("hidden");
+                }
+            });
+        });
     });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
 
-  // Scroll to top dugme
-  const scrollBtn = document.getElementById('scrollToTopBtn');
-  window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none';
-  });
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    // SORTIRANJE
+    const sortSelect = document.getElementById("sortSelect");
+    if (sortSelect) {
+        sortSelect.addEventListener("change", function() {
+            const cards = Array.from(menuGrid.querySelectorAll(".card"));
+            cards.sort((a, b) => {
+                const pA = parseInt(a.dataset.price);
+                const pB = parseInt(b.dataset.price);
+                if (this.value === "price-asc") return pA - pB;
+                if (this.value === "price-desc") return pB - pA;
+                if (this.value === "name-asc") return a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent);
+                if (this.value === "name-desc") return b.querySelector("h3").textContent.localeCompare(a.querySelector("h3").textContent);
+                return 0;
+            });
+            cards.forEach(c => menuGrid.appendChild(c));
+        });
+    }
+}
 
-  // Otvaranje / zatvaranje korpe
-  const openCartBtn = document.getElementById("idiUKorpu");
-  const closeCartBtn = document.getElementById("closeCartBtn");
-  const cartSidebar = document.getElementById("cartSidebar");
-
-  openCartBtn.addEventListener("click", () => {
-    cartSidebar.classList.add("open");
-  });
-  closeCartBtn.addEventListener("click", () => {
-    cartSidebar.classList.remove("open");
-  });
+// TEMA
+themeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        const isLight = document.body.classList.contains("light");
+        btn.textContent = isLight ? "🌙" : "☀️";
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
 });
+if(localStorage.getItem("theme") === "light") document.body.classList.add("light");
 
-// Dodavanje proizvoda u korpu
-function dodajUKorpu(naziv, cena) {
-  const lista = document.getElementById("cartItems");
-
-  const postojeci = Array.from(lista.children).find(li =>
-    li.querySelector(".naziv")?.textContent === naziv
-  );
-
-  if (postojeci) {
-    const kolicinaEl = postojeci.querySelector(".kolicina");
-    let kolicina = parseInt(kolicinaEl.textContent);
-    kolicinaEl.textContent = ++kolicina;
-  } else {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <span class="naziv">${naziv}</span> -
-      <span class="cena">${cena}</span> RSD -
-      <span class="kolicina">1</span>
-      <button class="smanji">−</button>
-    `;
-    lista.appendChild(li);
-
-    // Dugme za smanjenje
-    li.querySelector(".smanji").addEventListener("click", function () {
-      const kolicinaEl = li.querySelector(".kolicina");
-      let kolicina = parseInt(kolicinaEl.textContent);
-      if (kolicina > 1) {
-        kolicinaEl.textContent = --kolicina;
-      } else {
-        li.remove();
-      }
-      azurirajUkupnuCenu();
-    });
-  }
-
-  azurirajUkupnuCenu();
-  document.getElementById("cartSidebar").classList.add("open"); // automatski otvori
+// Postojeća funkcija za otvaranje
+function toggleCart() {
+    const cartOverlay = document.getElementById("cart");
+    cartOverlay.classList.toggle("active");
 }
 
-// Ažuriranje ukupne cene
-function azurirajUkupnuCenu() {
-  const stavke = document.querySelectorAll("#cartItems li");
-  let ukupno = 0;
-  stavke.forEach(stavka => {
-    const cena = parseInt(stavka.querySelector(".cena").textContent);
-    const kolicina = parseInt(stavka.querySelector(".kolicina").textContent);
-    ukupno += cena * kolicina;
-  });
-  document.getElementById("ukupnaCena").textContent = `Ukupno: ${ukupno} RSD`;
-}
-
-function dodajUKorpu(naziv, cena) {
-  const lista = document.getElementById("cartItems");
-
-  const postojeci = Array.from(lista.children).find(li =>
-    li.querySelector(".naziv")?.textContent === naziv
-  );
-
-  if (postojeci) {
-    const kolicinaEl = postojeci.querySelector(".kolicina");
-    let kolicina = parseInt(kolicinaEl.textContent);
-    kolicina++;
-    kolicinaEl.textContent = kolicina;
-
-    // Izračunaj ukupnu cenu za tu stavku
-    const ukupnaCenaEl = postojeci.querySelector(".ukupnaCena");
-    ukupnaCenaEl.textContent = `${cena * kolicina} RSD`;
-  } else {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <span class="naziv">${naziv}</span> -
-      <span class="ukupnaCena">${cena} RSD</span> - 
-      <span class="kolicina">1</span>
-      <button class="smanji">−</button>
-    `;
-    lista.appendChild(li);
-
-    li.querySelector(".smanji").addEventListener("click", function () {
-      const kolicinaEl = li.querySelector(".kolicina");
-      let kolicina = parseInt(kolicinaEl.textContent);
-      if (kolicina > 1) {
-        kolicina--;
-        kolicinaEl.textContent = kolicina;
-
-        // Update ukupne cene
-        const ukupnaCenaEl = li.querySelector(".ukupnaCena");
-        ukupnaCenaEl.textContent = `${cena * kolicina} RSD`;
-      } else {
-        li.remove();
-      }
-      azurirajUkupnuCenu();
-    });
-  }
-
-  azurirajUkupnuCenu();
-}
-
-function azurirajUkupnuCenu() {
-  const stavke = document.querySelectorAll("#cartItems li");
-  let ukupno = 0;
-
-  stavke.forEach(stavka => {
-    const cenaTekst = stavka.querySelector(".ukupnaCena").textContent;
-    // cenaTekst je npr "700 RSD", pa izvuci broj pre razmaka
-    const cena = parseInt(cenaTekst.split(" ")[0]);
-    ukupno += cena;
-  });
-
-  document.getElementById("ukupnaCena").textContent = `Ukupno: ${ukupno} RSD`;
-}
