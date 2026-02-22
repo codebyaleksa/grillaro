@@ -586,3 +586,123 @@ footer {
   body.light .card h3 { color: #111; }
 }
 
+@media (max-width: 600px) {
+  /* SMANJENA POLJA ZA UNOS */
+  .delivery-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Ime i Prezime u istom redu */
+    gap: 8px;
+    padding: 5px 0;
+  }
+  
+  .delivery-section h3 {
+    grid-column: span 2;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .delivery-section input {
+    padding: 8px 12px;
+    font-size: 13px;
+    margin-bottom: 0;
+    border-radius: 8px;
+  }
+
+  /* Polja koja moraju biti dugačka */
+  #phone, #pickupDate, #pickupTime {
+    grid-column: span 2;
+  }
+
+  /* Smanjujemo i visinu artikala u korpi da bi stalo više */
+  .cart-item {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .cart-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .menu { padding: 80px 16px; }
+  .menu-grid { grid-template-columns: 1fr; gap: 14px; }
+
+  /* Kartica */
+  .card {
+    display: flex;
+    flex-direction: row; /* slika levo, tekst desno */
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 18px;
+    position: relative; /* za apsolutno pozicioniranje cena+dugme */
+    height: 120px; /* minimalna visina kartice */
+  }
+
+  /* Slika */
+  .card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 14px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  /* Desni deo */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    padding-right: 60px; /* prostor za dugme + cena */
+  }
+
+  /* Ime proizvoda */
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+    white-space: normal;
+  }
+
+  /* Sakrivamo opis proizvoda */
+  .card .ingredients {
+    display: none;
+  }
+
+  /* Dugme + i cena u donjem desnom uglu */
+  .price-row {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px; /* cena odmah pored dugmeta */
+  }
+
+  .price-row button {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #ff3c00, #ff6a00);
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(255,60,0,0.3);
+  }
+
+  .price-row span {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff3c00;
+    padding-left: 200px;
+  }
+
+  /* Light mode prilagodbe */
+  body.light .card h3 { color: #111; }
+}
