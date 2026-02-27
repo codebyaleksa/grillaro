@@ -31,6 +31,19 @@ nav {
   font-weight: 800;
   letter-spacing: 2px;
 }
+
+  .cartt-btn
+{
+          background: #ffffff26;
+        border: none;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.3s;
+}
+
 .cart-btn, .theme-btn {
   background: #ffffff26;
   border: none;
@@ -1301,7 +1314,7 @@ footer {
     display: grid;
     grid-template-columns: 4fr 1fr; /* Ime i Prezime u istom redu */
     margin: 20px;
-    padding: 10px 80px;
+    padding: 10px 50px;
 
   }
   .delivery-section {
@@ -1324,6 +1337,17 @@ footer {
     border-radius: 8px;
   }
 
+  .cartt-btn
+{
+          background: #ffffff26;
+        border: none;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.3s;
+}
   /* Polja koja moraju biti dugačka */
   #phone, #pickupDate, #pickupTime {
     grid-column: span 2;
@@ -1356,6 +1380,23 @@ footer {
     border-radius: 18px;
     position: relative; /* za apsolutno pozicioniranje cena+dugme */
     height: 120px; /* minimalna visina kartice */
+  }
+
+  .cartt-btn {
+background: #ffffff26;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s;
+  }
+
+    .cartt-bttn {
+        display: flex;
+        position: relative;
+        margin-left: -30px;
   }
 
   /* Slika */
@@ -1429,7 +1470,20 @@ footer {
 .logo {
   width: 100%;
   text-align:center;
-}}
+}
+
+  .cartt-btn
+{
+          background: #ffffff26;
+        border: none;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.3s;
+}
+}
 
 .nav-right{
 position: absolute;
@@ -1441,4 +1495,45 @@ right: 15px;
 
 .tabs button {
 box-sizing: border-box;
+}
+
+
+@media (max-width: 1024px) {
+  /* Smanjujemo padding celog panela da dobijemo prostor */
+.logo {
+  width: 100%;
+  text-align:center;
+}
+
+  .cartt-btn
+{
+          background: #ffffff26;
+        border: none;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.3s;
+}
+}
+
+@media (max-width: 1920px) {
+  /* Smanjujemo padding celog panela da dobijemo prostor */
+.logo {
+  width: 100%;
+  text-align:center;
+}
+
+  .cartt-btn
+{
+          background: #ffffff26;
+        border: none;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.3s;
+}
 }
