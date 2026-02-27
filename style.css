@@ -743,7 +743,7 @@ nav {
 .cart-btn, .theme-btn {
   background: #ffffff26;
   border: none;
-  padding: 10px 18px;
+  padding: 5px 10px;
   color: white;
   border-radius: 30px;
   cursor: pointer;
@@ -963,7 +963,7 @@ body.light .card .ingredients, body.light .card p { color: #333; }
 /* TABS I FILTERI - VRACENO TVOJE */
 .tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; }
 .tab-btn {
-  padding: 10px 22px; border: none; border-radius: 30px; cursor: pointer;
+  padding: 10px 50px; border: none; border-radius: 30px; cursor: pointer;
   background: rgba(255,60,0,0.2); color: white; font-weight: 600; transition: 0.3s;
 }
 .tab-btn.active { background: linear-gradient(135deg,#ff3c00,#ff6a00); }
@@ -1288,7 +1288,7 @@ footer {
     font-size: 16px;
     font-weight: 700;
     color: #ff3c00;
-    padding-left: 330px;
+    padding-left: 130px;
   }
 
   /* Light mode prilagodbe */
@@ -1297,6 +1297,13 @@ footer {
 
 @media (max-width: 600px) {
   /* SMANJENA POLJA ZA UNOS */
+  .tabs {
+    display: grid;
+    grid-template-columns: 4fr 1fr; /* Ime i Prezime u istom redu */
+    margin: 20px;
+    padding: 10px 80px;
+
+  }
   .delivery-section {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Ime i Prezime u istom redu */
@@ -1414,4 +1421,24 @@ footer {
 
   /* Light mode prilagodbe */
   body.light .card h3 { color: #111; }
+}
+
+
+@media (max-width: 768px) {
+  /* Smanjujemo padding celog panela da dobijemo prostor */
+.logo {
+  width: 100%;
+  text-align:center;
+}}
+
+.nav-right{
+position: absolute;
+display: flex;
+align-items: center;
+top: 20px;
+right: 15px;
+}
+
+.tabs button {
+box-sizing: border-box;
 }
